@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     //Aqui dentro van variables
     companion object {
-        val number = Random.nextInt(1,100)
+        val number = Random.nextInt(1,10)
         var contador = 0
 
     }
@@ -36,8 +36,12 @@ class MainActivity : AppCompatActivity() {
 
             // se obtiene texto del EditText
             val guessText = findViewById<EditText>( R.id.guessText).text.toString()
+
             val guess = guessText.toIntOrNull() //esta linea identifica que guess es un INT
+            // --> Sé que aquí se puede hacer directamente con el EditText que solo admita NUMBERS, pero lo hice de está manera para entender ambas formas :)
+
             val contadorUpdate = findViewById<TextView>(R.id.contadorIntentos)
+            val puntajeFinal = findViewById<TextView>(R.id.puntajeFinal)
 
             if (guess != null){
                     contador += 1
@@ -53,7 +57,9 @@ class MainActivity : AppCompatActivity() {
                     } else if (number < guess){
                         Toast.makeText(this,"EL número secreto es menor", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this,"¡Acertaste!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Acertaste!", Toast.LENGTH_SHORT).show()
+                        //puntajeFinal.setText(contadorUpdate.text)
+                        puntajeFinal.text = contador.toString()
 
                     }
             } else {
@@ -64,8 +70,9 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-/* FALTA
+/* FALTA AGREGAR
 *  Si se adivina el numero dar mensaje de puntaje segun intentos
+*  Historial de intentos (ranking?)
 *
 * */
 
