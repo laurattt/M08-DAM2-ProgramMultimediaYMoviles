@@ -1,16 +1,21 @@
 package com.lauratoro.adivinaelnum
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.random.Random
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +37,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        /* asi se crean alertas (creo)
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Mensaje").setTitle("Título")
+        builder.show()
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()*/
+
         findViewById<Button>(R.id.adivina).setOnClickListener {
 
             // se obtiene texto del EditText
@@ -39,6 +52,9 @@ class MainActivity : AppCompatActivity() {
 
             val guess = guessText.toIntOrNull() //esta linea identifica que guess es un INT
             // --> Sé que aquí se puede hacer directamente con el EditText que solo admita NUMBERS, pero lo hice de está manera para entender ambas formas :)
+
+            //val historial = findViewById<ScrollView>(R.id.historial)
+            //aqui lo mejor es meter un text view y luego textView.append(accede a datos)
 
             val contadorUpdate = findViewById<TextView>(R.id.contadorIntentos)
             val puntajeFinal = findViewById<TextView>(R.id.puntajeFinal)
@@ -60,6 +76,13 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this,"Acertaste!", Toast.LENGTH_SHORT).show()
                         //puntajeFinal.setText(contadorUpdate.text)
                         puntajeFinal.text = contador.toString()
+
+                        //esto da el mensaje de alerta al final, se puede agregar opciones de volver a jugar - etc
+                        val builder = AlertDialog.Builder(this)
+                        builder.setMessage("Has ganado :)").setTitle("Juego terminado")
+                        builder.show()
+                        val dialog: AlertDialog = builder.create()
+                        dialog.show()
 
                     }
             } else {

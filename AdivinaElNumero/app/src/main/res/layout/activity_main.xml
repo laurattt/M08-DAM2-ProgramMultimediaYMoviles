@@ -65,10 +65,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adivina"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.139" />
 
     <TextView
         android:id="@+id/puntajeFinal"
@@ -80,6 +80,6 @@
         app:layout_constraintHorizontal_bias="0.639"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adivina"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.139" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
